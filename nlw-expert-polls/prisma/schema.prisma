@@ -1,5 +1,6 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
+// DATABASE_URL="postgresql://docker:docker@localhost:5433/polls?schema=public"
 
 generator client {
   provider = "prisma-client-js"
