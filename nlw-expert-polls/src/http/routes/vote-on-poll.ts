@@ -63,13 +63,15 @@ export async function voteOnPoll(app: FastifyInstance) {
       });
     }
 
-    await prisma.vote.create({
-      data: {
-        sessionId,
-        pollId,
-        pollOptionId
-      },
-    });
+    if (sessionId) {
+      await prisma.vote.create({
+        data: {
+          sessionId,
+          pollId,
+          pollOptionId
+        },
+      });
+    }    
 
     const votes = await redis.zincrby(pollId, 1, pollOptionId);
 
